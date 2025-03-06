@@ -13,7 +13,7 @@ export default function Header() {
 
   //get selected Option
   const save = () => {
-    return typeof window !== "undefined"
+    return typeof localStorage !== "undefined"
       ? localStorage.getItem("selected")
       : null;
   };
@@ -27,7 +27,7 @@ export default function Header() {
 
   //store selected Option
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof localStorage !== "undefined") {
       localStorage.setItem("selected", selected);
     }
   }, [selected]);
