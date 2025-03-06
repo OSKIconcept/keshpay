@@ -12,7 +12,14 @@ export default function Header() {
   // ]
 
   //get selected Option
-  const savedOption = localStorage.getItem("selected");
+  const save = () => {
+    return typeof window !== "undefined"
+      ? localStorage.getItem("selected")
+      : null;
+  };
+
+  const savedOption = save();
+
   const initialOption = savedOption ? savedOption : "a";
 
   const [navOn, setNavOn] = useState(false);
