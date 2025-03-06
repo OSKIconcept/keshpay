@@ -20,7 +20,7 @@ export default function Header() {
 
   //store selected Option
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (localStorage !== undefined) {
       localStorage.setItem("selected", selected);
     }
   }, [selected]);
