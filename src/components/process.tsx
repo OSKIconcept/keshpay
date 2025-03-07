@@ -62,7 +62,7 @@ export default function Process() {
           ease: "expo.inOut",
           scrollTrigger: {
             trigger: imgz,
-            start: "-10% 80%",
+            start: "-15% 80%",
             end: "10% 20%",
             scrub: true,
           },
@@ -89,37 +89,75 @@ export default function Process() {
     //     });
     //   });
 
-    gsap.from(".txt", {
-      opacity: 0,
-      x: 30,
-      // duration: 1,
-      stagger: 0.1, // Stagger animation for each element with a 0.3s
+    // gsap.from(".txt", {
+    //   opacity: 0,
+    //   x: 30,
+    //   // duration: 1,
+    //   // Stagger animation for each element with a 0.3s
 
-      ease: "power3.out",
+    //   ease: "power3.out",
 
-      scrollTrigger: {
-        trigger: textRef.current,
-        start: "-20% 70%",
-        scrub: true,
-      },
+    //   scrollTrigger: {
+    //     trigger: ".text",
+    //     start: "-20% 70%",
+    //     scrub: true,
+    //     markers: true,
+    //   },
+    // });
+
+    gsap.utils.toArray<NodeListOf<HTMLDivElement>>(".txt").forEach((txt) => {
+      gsap.from(txt, {
+        opacity: 0,
+        x: 30,
+        // duration: 1,
+        // Stagger animation for each element with a 0.3s
+
+        ease: "power3.out",
+
+        scrollTrigger: {
+          trigger: txt,
+          start: "-20% 70%",
+          scrub: true,
+          // markers: true,
+        },
+      });
     });
 
-    gsap.from(".snd", {
-      opacity: 0,
-      y: 50,
+    gsap.utils.toArray<NodeListOf<HTMLDivElement>>(".snd").forEach((snd) => {
+      gsap.from(snd, {
+        opacity: 0,
+        y: 50,
 
-      delay: 0.1,
-      // duration: 1,
-      stagger: 0.1, // Stagger animation for each element with a 0.3s
+        delay: 0.1,
+        // duration: 1,
+        stagger: 0.1, // Stagger animation for each element with a 0.3s
 
-      ease: "power3.out",
+        ease: "power3.out",
 
-      scrollTrigger: {
-        trigger: textRef.current,
-        start: "-20% 70%",
-        scrub: true,
-      },
+        scrollTrigger: {
+          trigger: snd,
+          start: "-20% 70%",
+          scrub: true,
+        },
+      });
     });
+
+    // gsap.from(".snd", {
+    //   opacity: 0,
+    //   y: 50,
+
+    //   delay: 0.1,
+    //   // duration: 1,
+    //   stagger: 0.1, // Stagger animation for each element with a 0.3s
+
+    //   ease: "power3.out",
+
+    //   scrollTrigger: {
+    //     trigger: textRef.current,
+    //     start: "-20% 70%",
+    //     scrub: true,
+    //   },
+    // });
 
     gsap.from(".icon", {
       scale: 0.75,
@@ -167,8 +205,8 @@ export default function Process() {
             className="max-w-[624px] max-h-[624px] w-full imgz "
           />
           <div
-            ref={textRef}
-            className="flex flex-col items-center md:items-start gap-[36px] "
+            // ref={textRef}
+            className="text flex flex-col items-center md:items-start gap-[36px] "
           >
             <div className="w-[300px] sm:w-[400px] md:w-full scroll">
               <h3
@@ -215,10 +253,13 @@ export default function Process() {
             alt="$400"
             className="max-w-[624px] max-h-[624px] w-full imgz "
           />
-          <div className="flex flex-col items-center md:items-start gap-[36px] ">
+          <div
+            // ref={textRef}
+            className="text flex flex-col items-center md:items-start gap-[36px] "
+          >
             <div className="w-[300px] sm:w-[400px] md:w-full">
               <h3
-                className={`${geistMono.className} lg:text-[46px] lg:leading-[55.2px] text-[#0C141D] md:text-[40px] sm:text-[32px] text-[30px] leading-8 text-center md:text-left  `}
+                className={`${geistMono.className} lg:text-[46px] lg:leading-[55.2px] text-[#0C141D] md:text-[40px] sm:text-[32px] text-[30px] leading-8 text-center md:text-left snd `}
               >
                 Get paid instantly with Keshpay
               </h3>
@@ -230,7 +271,7 @@ export default function Process() {
                   alt="tick"
                   className="md:w-[23px] w-[18px] object-contain"
                 />{" "}
-                <p>Send an invoice using Kehpay.</p>
+                <p className="txt">Send an invoice using Kehpay.</p>
               </div>
 
               <div className="flex gap-[14px] items-start justify-center text-[#566576]">
@@ -239,7 +280,9 @@ export default function Process() {
                   alt="tick"
                   className="md:w-[23px] w-[18px] text-[18px]"
                 />{" "}
-                <p>Receive your money in less than 5 seconds.</p>
+                <p className="txt">
+                  Receive your money in less than 5 seconds.
+                </p>
               </div>
 
               <div className="flex gap-[14px] items-start justify-center text-[#566576] ">
@@ -248,7 +291,9 @@ export default function Process() {
                   alt="tick"
                   className="md:w-[23px] w-[18px] text-[18px]"
                 />
-                <p>Withdraw directly to your bank account or in USDC.</p>
+                <p className="txt">
+                  Withdraw directly to your bank account or in USDC.
+                </p>
               </div>
             </div>
           </div>
@@ -259,10 +304,10 @@ export default function Process() {
             alt="$4800"
             className="max-w-[624px] max-h-[624px] w-full  imgz"
           />
-          <div className="flex flex-col items-center md:items-start gap-[36px] ">
+          <div className="text flex flex-col items-center md:items-start gap-[36px] ">
             <div className="w-[300px] sm:w-[400px] md:w-full">
               <h3
-                className={`${geistMono.className} lg:text-[46px] lg:leading-[55.2px] text-[#0C141D] md:text-[40px] sm:text-[32px] text-[30px] leading-8 text-center md:text-left  `}
+                className={`${geistMono.className} lg:text-[46px] lg:leading-[55.2px] text-[#0C141D] md:text-[40px] sm:text-[32px] text-[30px] leading-8 text-center md:text-left snd  `}
               >
                 Take full control of your money
               </h3>
@@ -274,7 +319,9 @@ export default function Process() {
                   alt="tick"
                   className="md:w-[23px] w-[18px] object-contain"
                 />{" "}
-                <p>Complete ownership and control over your money.</p>
+                <p className="txt">
+                  Complete ownership and control over your money.
+                </p>
               </div>
 
               <div className="flex gap-[14px] items-start justify-center text-[#566576]">
@@ -283,7 +330,7 @@ export default function Process() {
                   alt="tick"
                   className="md:w-[23px] w-[18px] text-[18px]"
                 />{" "}
-                <p>
+                <p className="txt">
                   Your wallet is self-custodial, so we can’t access your funds.
                 </p>
               </div>
@@ -294,7 +341,7 @@ export default function Process() {
                   alt="tick"
                   className="md:w-[23px] w-[18px] text-[18px]"
                 />
-                <p>
+                <p className="txt">
                   Your private key lets you move your funds to another platform.
                 </p>
               </div>
