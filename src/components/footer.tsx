@@ -16,7 +16,7 @@ export default function Footer() {
             <Image src={kesh} alt="" className="w-[26px]" />
             <p className="text-white text-2xl">Keshpay</p>
           </div>
-          <div className="flex  md:gap-8 gap-6">
+          <div className="flex  md:gap-8  w-full justify-between md:justify-end ">
             <div className=" flex flex-col gap-[16px] md:w-[192px] w-20  ">
               <p className="text-[#C8C9D0]">Product</p>
               <p>Overview</p>

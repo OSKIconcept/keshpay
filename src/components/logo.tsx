@@ -15,7 +15,7 @@ export default function Logo() {
 
       rotation: 360,
       repeat: -1, // Infinite loop
-      duration: 5, // 5 seconds for one full rotation
+      duration: 4.5, // 5 seconds for one full rotation
       ease: "none", // No easing, constant speed
       transformOrigin: "center center", // Rotate from the center
     });

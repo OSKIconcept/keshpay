@@ -1,12 +1,30 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "./button";
 import logo from "@/assets/keshpay.png";
 import Image from "next/image";
 import { CircleDot, Menu, X } from "lucide-react";
+import gsap from "gsap";
 
 export default function Header() {
+  const headerRef = useRef(null);
+
+  const handleclick = () => {
+    gsap.to(headerRef.current, {
+      scale: 1.08,
+      ease: "power3.out",
+      duration: 0.2,
+      onComplete: () => {
+        gsap.to(headerRef.current, {
+          scale: 1,
+          ease: "power3.in",
+          duration: 0.2,
+        });
+      },
+    });
+  };
+
   // const navLinks = [
   //     {href: "/" , label: Features},
   // ]
@@ -35,7 +53,11 @@ export default function Header() {
   return (
     <div className="text-[#001C3D] text-[16px]  sticky top-0 bg-white  z-40 backdrop-blur-sm bg-opacity-70">
       <div className="max-w-[1360px]  flex justify-between items-center px-[40px] py-[27px] mx-auto ">
-        <div className="flex justify-center items-center  gap-2">
+        <div
+          ref={headerRef}
+          onClick={handleclick}
+          className="flex justify-center items-center  gap-2 cursor-pointer"
+        >
           <Image src={logo} alt="keshpayLogo" className="w-[26px]" />
           <p className="text-[24px]">Kespay</p>
         </div>

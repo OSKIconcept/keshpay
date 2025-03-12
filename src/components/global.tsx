@@ -70,7 +70,6 @@ export default function Global() {
         <div className="relative group  lg:mb-[128px]  lg:mt-[80px] md:mt-[48px]  md:mb-[68px] mt-[36px] mb-[50px]">
           <Image
             ref={imageRef}
-            placeholder="blur"
             src={global}
             quality={100}
             alt="global"
