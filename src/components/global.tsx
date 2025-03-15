@@ -9,7 +9,7 @@ import global from '@/assets/frame.png';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import Logo from './logo';
+// import Logo from './logo';
 import TextWithSpinner from './TextWithSpinner';
 
 const geistMono = localeFont({
