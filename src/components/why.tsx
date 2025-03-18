@@ -53,21 +53,21 @@ export default function Why() {
             designed to fit your everyday needs
           </p>
         </div>
-        <div className="flex gap-[20px] md:gap-[24px]  items-center justify-center flex-wrap flex-1">
+        <div className="flex gap-[20px] md:gap-[24px]  items-center justify-center flex-wrap flex-1 group">
           <div
             // ref={boxRef}
-            className="bg-[#181E25] rounded-3xl py-16 px-20 flex flex-col md:gap-[85.78px] gap-[50px] items-center justify-center   "
+            className="bg-[#181E25] rounded-3xl py-16 px-20 flex flex-col md:gap-[85.78px] gap-[50px] items-center justify-center group-hover:none hover:scale-105 transition-all ease-out duration-200   "
           >
             <Image src={secure} alt="" className="w-[180px]" />
             <p>Secure and Reliable</p>
           </div>
 
-          <div className="bg-[#181E25] rounded-3xl py-16 px-20 flex flex-col md:gap-[85.78px] gap-[50px] items-center justify-center   ">
+          <div className="bg-[#181E25] rounded-3xl py-16 px-20 flex flex-col md:gap-[85.78px] gap-[50px] items-center justify-center group-hover:none hover:scale-105 transition-all ease-out duration-200   ">
             <Image src={secure} alt="" className="w-[180px]" />
             <p>Fast transactions</p>
           </div>
 
-          <div className="bg-[#181E25] rounded-3xl py-16 px-20 flex flex-col md:gap-[85.78px] gap-[50px] items-center justify-center   ">
+          <div className="bg-[#181E25] rounded-3xl py-16 px-20 flex flex-col md:gap-[85.78px] gap-[50px] items-center justify-center group-hover:none hover:scale-105 transition-all ease-out duration-200   ">
             <Image src={secure} alt="" className="w-[180px]" />
             <p>Low transactiobns fees</p>
           </div>

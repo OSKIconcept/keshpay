@@ -52,7 +52,7 @@ export default function Header() {
 
   return (
     <div className="text-[#001C3D] text-[16px]  sticky top-0 bg-white  z-40 backdrop-blur-sm bg-opacity-70">
-      <div className="max-w-[1360px]  flex justify-between items-center px-[40px] py-[27px] mx-auto ">
+      <div className="max-w-[1360px]  flex justify-between items-center px-[40px] md:py-[27px] py-4 mx-auto ">
         <div
           ref={headerRef}
           onClick={handleclick}
@@ -96,7 +96,7 @@ export default function Header() {
 
         {navOn && (
           <nav
-            className={`animate-slide-up md:hidden fixed bottom-0 top-0 left-0 right-0 w-full bg-[#EBF4FF] min-h-screen  transform transition-all duration-500  ease-in px-[40px] py-[27px] ${
+            className={`animate-slide-up md:hidden fixed bottom-0 top-0 left-0 right-0 w-full bg-[#EBF4FF] min-h-screen  transform transition-all duration-500  ease-in px-[40px] md:py-[27px] py-4 ${
               navOn ? "translate-y-0 z-50 " : "translate-y-full z-50 "
             }`}
           >

@@ -6,25 +6,57 @@ import twitter from "@/assets/Vector.png";
 import linkedin from "@/assets/linedIn.png";
 import instagram from "@/assets/instagram.png";
 import kesh from "@/assets/keshpay.png";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
+  useGSAP(() => {
+    gsap.from(".kesh", {
+      opacity: 0,
+
+      duration: 1,
+      stagger: 0.2, // Stagger animation for each element with a 0.3s
+      delay: 0.3,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".kesh",
+        start: "-60% 90%",
+        scrub: true,
+      },
+    });
+
+    gsap.from(".links", {
+      x: 30,
+      stagger: 0.08,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".links",
+        start: "-95% 95%",
+        scrub: true,
+      },
+    });
+  });
+
   return (
     <div className="flex justify-center items-center bg-[#101419] text-[#76777F] py-[64px] px-10 md:text-base text-xs">
       <div className=" mx-auto flex flex-col max-w-[1360px] w-full md:gap-16 gap-8">
         <div className="md:flex-row  flex flex-col justify-between items-start gap-10 ">
-          <div className="flex space-x-2 items-center justify-center">
+          <div className="kesh flex space-x-2 items-center justify-center">
             <Image src={kesh} alt="" className="w-[26px]" />
-            <p className="text-white text-2xl">Keshpay</p>
+            <p className="text-white text-2xl ">Keshpay</p>
           </div>
           <div className="flex  md:gap-8  w-full justify-between md:justify-end ">
-            <div className=" flex flex-col gap-[16px] md:w-[192px] w-20  ">
+            <div className="links flex flex-col gap-[16px] md:w-[192px] w-20  ">
               <p className="text-[#C8C9D0]">Product</p>
               <p>Overview</p>
               <p>Features</p>
               <p>Pricing</p>
             </div>
 
-            <div className=" flex flex-col gap-[16px] md:w-[192px] w-20 ">
+            <div className="links flex flex-col gap-[16px] md:w-[192px] w-20 ">
               <p className="text-[#C8C9D0]">Company</p>
               <p>About us</p>
               <p>Careers</p>
@@ -32,7 +64,7 @@ export default function Footer() {
               <p>Contact</p>
             </div>
 
-            <div className=" flex flex-col gap-[16px] md:w-[192px] w-20 ">
+            <div className="links flex flex-col gap-[16px] md:w-[192px] w-20 ">
               <p className="text-[#C8C9D0]">Resources</p>
               <p>Blog</p>
               <p>Newsletter</p>
@@ -61,7 +93,7 @@ export default function Footer() {
                   });
                 }}
               >
-                Top
+                {/* <span className="sticky bottom-0">top</span> */}
               </button>
             </div>
           </div>
